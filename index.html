@@ -1,0 +1,100 @@
+<html>
+<head>
+<style>
+body{
+background-image:url('https://t3.ftcdn.net/jpg/03/20/59/22/360_F_320592225_vaan124Mo0PkYqbpYSvZAo7df02dv63g.jpg');
+background-repeat:no-repeat;
+background-size:cover;
+}
+.container{
+max-width:600px;
+margin:50px auto;
+background-color:tomato;
+padding:20px;
+box-shadow:0 0 10px rgba(0,0,0,0.1);
+}
+h1{
+font:verdana;
+text-align:center;
+color:#f2e707;
+}
+input[type="text"]{
+width:70%;
+padding:10px;
+margin:10px 0;
+}
+button{
+padding:10px;
+background-color:#4caf50;
+color:#fff;
+border:none;
+cursor:pointer;
+}
+button:hover{
+background-color:$45a049;
+}
+ul{
+list-style:none;
+padding:0;
+
+}
+li{
+display:flex;
+justify-content:space-between;
+align-items:center;
+padding:10px;
+border-bottom:1px solid white;
+}
+li span{
+flex-grow:1;
+}
+.delete{
+background-color:blue;
+color:fff;
+padding:5px 10px;
+border:none;
+cursor:pointer;
+}
+.delete:hover{
+background-color:red;
+}
+
+#cartitem{
+font-weight:bold;
+font-style:sans-serif;
+color:black;
+}
+
+
+
+
+
+
+</style>
+</head>
+<body>
+<div class="container">
+<h1>supermarket cart</h1>
+<center><input type="text" id="item" placeholder="add new item">
+<button id="additem">Add item</button></center>
+<ul id="cartitem">
+</ul>
+</div>
+<script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+<script>
+$(document).ready(function(){
+  $('#additem').on('click',function(){
+     var item=$('#item').val();
+     if(item!==''){
+        $('#cartitem').append('<li><span>' + item + '</span><button class="delete">Delete</button></li>');
+        $('#newitem').val('');
+}
+});
+$('#cartitem').on('click', '.delete',function(){
+   $(this).closest('li').remove();
+});
+});
+</script>
+
+</body>
+</html>
